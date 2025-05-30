@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Letter</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      background-color: #f3f0ff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .folder {
+      display: inline-block;
+      width: 120px;
+      height: 100px;
+      background-color: #ffcc00;
+      border-radius: 8px 8px 2px 2px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .folder:hover {
+      transform: scale(1.05);
+    }
+
+    .folder::before {
+      content: "";
+      position: absolute;
+      top: -15px;
+      left: 10px;
+      width: 60px;
+      height: 20px;
+      background-color: #f7b500;
+      border-radius: 4px 4px 0 0;
+    }
+
+    .label {
+      margin-top: 15px;
+      font-size: 18px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .subtext {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #666;
+      font-style: italic;
+    }
+
+    @media (max-width: 600px) {
+      .folder {
+        width: 100px;
+        height: 80px;
+      }
+      .folder::before {
+        width: 50px;
+        height: 16px;
+      }
+      .label {
+        font-size: 16px;
+      }
+      .subtext {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="folder" onclick="requestPassword()"></div>
+    <div class="label">Open Letter</div>
+    <div class="subtext">only for Ms. Eashal</div>
+  </div>
+
+  <script>
+    function requestPassword() {
+      const password = prompt("Enter password to open the letter:");
+      if (password === "OnlyEashal") {
+        window.open("eaglu.pdf", "_blank");
+      } else if (password !== null) {
+        alert("Incorrect password. Access denied.");
+      }
+    }
+  </script>
+</body>
+</html>
